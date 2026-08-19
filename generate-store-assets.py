@@ -109,19 +109,20 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   display:flex; align-items:center; padding:0 16px; gap:14px; }}
 .nav {{
   width:34px;height:34px;border-radius:50%;background:{mist};display:flex;align-items:center;
-  justify-content:center;color:{deep};font-size:15px;font-weight:700; }}
+  justify-content:center;color:{deep}; }}
+.nav svg {{ display:block; }}
 .omnibox {{ flex:1; height:34px; background:{warm}; border:1px solid {mist};
   border-radius:18px; color:{deep}; font-size:14px; padding-left:18px; display:flex; align-items:center; }}
 .bookbar {{ height:32px; background:{warm}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
 .bookbar span {{ color:{text_col}; font-size:12.5px; }}
 .ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; position:relative; }}
-.top-right {{ position:absolute; top:4px; right:22px; display:flex; align-items:center; gap:20px;
+.top-right {{ position:absolute; top:0px; right:22px; display:flex; align-items:center; gap:20px;
   color:{text_col}; font-size:13px; }}
 .grid {{ width:20px; height:20px; display:grid; grid-template-columns:1fr 1fr 1fr;
   grid-template-rows:1fr 1fr 1fr; gap:2px; }}
 .grid b {{ background:{text_col}; border-radius:1px; }}
 .logo-area {{ margin-top:118px; width:260px; height:100px; display:flex; align-items:center; justify-content:center; }}
-.logo {{ font-size:92px; font-weight:700; letter-spacing:-3px; color:{logo_col}; }}
+.logo {{ font-size:92px; font-weight:400; letter-spacing:-3px; color:{logo_col}; }}
 .search {{ margin-top:30px; width:560px; height:46px; background:#FFFFFF;
   border:1px solid {mist}; border-radius:24px; display:flex; align-items:center; padding:0 20px;
   color:{text_col}; font-size:15px; gap:12px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }}
@@ -137,7 +138,9 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   </div>
 </div>
 <div class="toolbar">
-  <div class="nav">&#8249;</div><div class="nav">&#8250;</div><div class="nav">&#8635;</div>
+  <div class="nav"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+  <div class="nav"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
+  <div class="nav"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
   <div class="omnibox">Search Google or type a URL</div>
 </div>
 <div class="bookbar">
