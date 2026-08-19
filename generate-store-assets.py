@@ -27,16 +27,23 @@ ROOT = Path(__file__).resolve().parent
 MANIFEST = ROOT / "manifest.json"
 THEME_DIR = ROOT  # manifest.json lives in project root, loadable as unpacked theme
 
-# ---- palette (dynamic from manifest, used only for promo tiles) ----
+# ---- palette (dynamic from manifest) ----
 def palette():
     c = json.loads(MANIFEST.read_text(encoding="utf-8"))["theme"]["colors"]
     def hx(k):
         return tuple(c[k])
+    warm = hx("ntp_background")
+    # The real browser renders the themed Google logo in a warm beige/gold tone
+    # that is darker and more yellow than ntp_background. We derive it from the
+    # manifest background so the screenshot stays in sync with the theme.
+    logo_beige = tuple(max(0, min(255, int(warm[i] * f))) for i, f in enumerate((0.85, 0.78, 0.55)))
     return {
         "deep": hx("frame"),
         "sky": hx("ntp_link"),
         "mist": hx("ntp_header"),
-        "warm": hx("ntp_background"),
+        "warm": warm,
+        "logo": logo_beige,
+        "text": hx("ntp_text"),
     }
 
 P = palette()
@@ -75,14 +82,16 @@ def render_browser_screenshot(out_path):
     Headless Chromium cannot navigate to chrome://newtab, so we build an
     HTML mockup that mirrors the real NTP structure (dark titlebar + tab
     strip, bookmark bar, warm-white NTP area with centered logo + search
-    box). All colors are read live from manifest.json so the screenshot
-    matches the installed theme exactly. All assets are inlined (no
-    external requests) per the file:// inlining rule.
+    box + shortcut tiles). Colors are read from manifest.json and tuned to
+    match the actual browser render (the themed Google logo appears as a
+    warm beige/gold rather than the raw ntp_link color). All assets are
+    inlined (no external requests) per the file:// inlining rule.
     """
     deep = _hex(P["deep"])
-    sky = _hex(P["sky"])
-    mist = _hex(P["mist"])
     warm = _hex(P["warm"])
+    mist = _hex(P["mist"])
+    logo_col = _hex(P["logo"])
+    text_col = _hex(P["text"])
 
     html = f"""<!doctype html><html><head><meta charset="utf-8">
 <style>
@@ -103,37 +112,61 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   justify-content:center;color:{deep};font-size:15px;font-weight:700; }}
 .omnibox {{ flex:1; height:34px; background:{warm}; border:1px solid {mist};
   border-radius:18px; color:{deep}; font-size:14px; padding-left:18px; display:flex; align-items:center; }}
-.bookbar {{ height:32px; background:{mist}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
-.bookbar span {{ color:{deep}; font-size:12.5px; }}
-.ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; }}
-.logo {{ margin-top:118px; font-size:92px; font-weight:700; letter-spacing:-3px; color:{sky}; }}
-.search {{ margin-top:30px; width:560px; height:46px; background:{warm};
+.bookbar {{ height:32px; background:{warm}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
+.bookbar span {{ color:{text_col}; font-size:12.5px; }}
+.ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; position:relative; }}
+.top-right {{ position:absolute; top:22px; right:22px; display:flex; align-items:center; gap:20px;
+  color:{text_col}; font-size:13px; }}
+.grid {{ width:20px; height:20px; display:grid; grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:1fr 1fr 1fr; gap:2px; }}
+.grid b {{ background:{text_col}; border-radius:1px; }}
+.logo {{ margin-top:118px; font-size:92px; font-weight:700; letter-spacing:-3px; color:{logo_col}; }}
+.search {{ margin-top:30px; width:560px; height:46px; background:#FFFFFF;
   border:1px solid {mist}; border-radius:24px; display:flex; align-items:center; padding:0 20px;
-  color:{deep}; font-size:15px; gap:12px; }}
-.search .mag {{ width:20px;height:20px;border-radius:50%;border:2px solid {deep}; }}
-.foot {{ margin-top:auto; width:100%; height:40px; background:{warm};
-  display:flex; align-items:center; justify-content:center; gap:30px;
-  border-top:1px solid {mist}; color:{deep}; font-size:12.5px; }}
+  color:{text_col}; font-size:15px; gap:12px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }}
+.search .mag {{ width:20px;height:20px;border-radius:50%;border:2px solid {text_col}; }}
+.shortcuts {{ margin-top:42px; display:flex; gap:34px; }}
+.tile {{ display:flex; flex-direction:column; align-items:center; gap:10px; }}
+.icon {{ width:64px; height:64px; border-radius:50%; background:{mist}; display:flex; align-items:center;
+  justify-content:center; color:{text_col}; font-size:28px; font-weight:700; }}
+.tile span {{ color:{text_col}; font-size:12.5px; }}
 </style></head><body>
 <div class="titlebar">
   <div class="ctrls"><span></span><span></span><span></span></div>
   <div class="tabs">
-    <div class="tab active">Coastal Workspace</div>
-    <div class="tab">Reference</div>
-    <div class="tab">Inbox</div>
+    <div class="tab active">New Tab</div>
+    <div class="tab">Extensions</div>
+    <div class="tab">SiliconFlow</div>
+    <div class="tab">Palette</div>
   </div>
 </div>
 <div class="toolbar">
   <div class="nav">&#8249;</div><div class="nav">&#8250;</div><div class="nav">&#8635;</div>
-  <div class="omnibox">https://coastal.example.com</div>
+  <div class="omnibox">Search Google or type a URL</div>
 </div>
 <div class="bookbar">
   <span>Work</span><span>Mail</span><span>Calendar</span><span>Notes</span><span>Reading</span>
 </div>
 <div class="ntp">
+  <div class="top-right"><span>Images</span><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
   <div class="logo">Google</div>
   <div class="search"><div class="mag"></div>Search Google or type a URL</div>
-  <div class="foot"><span>Gmail</span><span>Images</span><span>Sign in</span></div>
+  <div class="shortcuts">
+    <div class="tile"><div class="icon" style="background:#FF0000;color:#fff;">▶</div><span>YouTube</span></div>
+    <div class="tile">
+      <div class="icon" style="background:#FFFFFF;border:1px solid {mist};overflow:hidden;">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16l-2 13H6L4 6z" fill="#4285F4" opacity="0.9"/>
+          <path d="M8 6V4a2 2 0 0 1 4 0v2M12 6V4a2 2 0 0 1 4 0v2" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="9" cy="12" r="1.5" fill="#FBBC05"/>
+          <circle cx="15" cy="12" r="1.5" fill="#34A853"/>
+          <circle cx="12" cy="15" r="1.5" fill="#EA4335"/>
+        </svg>
+      </div>
+      <span>Chrome Web Store</span>
+    </div>
+    <div class="tile"><div class="icon">+</div><span>Add shortcut</span></div>
+  </div>
 </div>
 </body></html>"""
 
