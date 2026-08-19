@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "name": "Ocean Mist Theme",
+  "theme": {
+    "colors": {
+      "frame": [51, 104, 160],
+      "frame_inactive": [58, 112, 168],
+      "toolbar": [242, 239, 231],
+      "tab_text": [51, 104, 160],
+      "tab_background_text": [242, 239, 231],
+      "bookmark_text": [51, 104, 160],
+      "ntp_background": [242, 239, 231],
+      "ntp_text": [51, 104, 160],
+      "ntp_link": [102, 163, 191],
+      "button_background": [200, 223, 219],
+      "toolbar_button_icon": [51, 104, 160],
+      "toolbar_button_icon_inactive": [102, 163, 191],
+      "toolbar_text": [51, 104, 160],
+      "omnibox_background": [242, 239, 231],
+      "omnibox_text": [51, 104, 160],
+      "omnibox_background_hover": [200, 223, 219],
+      "omnibox_selected_keyword": [102, 163, 191],
+      "control_background": [200, 223, 219],
+      "tab_line": [102, 163, 191],
+      "ntp_header": [200, 223, 219]
+    },
+    "tints": {
+      "buttons": [102, 163, 191],
+      "frame": [0.4, 0.5, 0.35]
+    },
+    "properties": {
+      "ntp_background_alignment": "top",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}

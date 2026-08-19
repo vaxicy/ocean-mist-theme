@@ -1,0 +1,8 @@
+.codebuddy/
+*.bak
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+generate-icon.py
+generate-store-assets.py
