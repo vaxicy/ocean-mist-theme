@@ -12,7 +12,7 @@
       "bookmark_text": [51, 104, 160],
       "ntp_background": [242, 239, 231],
       "ntp_text": [51, 104, 160],
-      "ntp_link": [102, 163, 191],
+      "ntp_link": [133, 187, 209],
       "button_background": [200, 223, 219],
       "toolbar_button_icon": [51, 104, 160],
       "toolbar_button_icon_inactive": [102, 163, 191],
@@ -31,7 +31,8 @@
     },
     "properties": {
       "ntp_background_alignment": "top",
-      "ntp_background_repeat": "no-repeat"
+      "ntp_background_repeat": "no-repeat",
+      "ntp_logo_alternate": 1
     }
   }
 }
