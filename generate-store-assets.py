@@ -116,7 +116,7 @@ body {{ width:1280px; height:800px; background:{warm}; }}
 .bookbar {{ height:32px; background:{warm}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
 .bookbar span {{ color:{text_col}; font-size:12.5px; }}
 .ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; position:relative; }}
-.top-right {{ position:absolute; top:0px; right:22px; display:flex; align-items:center; gap:20px;
+.top-right {{ position:absolute; top:-28px; right:22px; display:flex; align-items:center; gap:20px;
   color:{text_col}; font-size:13px; }}
 .grid {{ width:20px; height:20px; display:grid; grid-template-columns:1fr 1fr 1fr;
   grid-template-rows:1fr 1fr 1fr; gap:2px; }}
