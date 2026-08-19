@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "1.0.0",
   "name": "Ocean Mist Theme",
-  "description": "A calm, minimalist Chrome theme inspired by the morning coastline — deep ocean blue, soft sky blue, mist cyan, and warm white for focus.",
+  "description": "A calm, minimalist Chrome theme inspired by the morning coastline — ocean blue, sky blue, mist cyan, and warm white."
   "theme": {
     "colors": {
       "frame": [51, 104, 160],
