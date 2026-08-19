@@ -122,7 +122,7 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   grid-template-rows:1fr 1fr 1fr; gap:2px; }}
 .grid b {{ background:{text_col}; border-radius:1px; }}
 .logo-area {{ margin-top:118px; width:260px; height:100px; display:flex; align-items:center; justify-content:center; }}
-.logo {{ font-size:92px; font-weight:400; letter-spacing:-3px; color:{logo_col}; }}
+.logo {{ font-size:92px; font-weight:700; letter-spacing:-3px; color:{logo_col}; }}
 .search {{ margin-top:30px; width:560px; height:46px; background:#FFFFFF;
   border:1px solid {mist}; border-radius:24px; display:flex; align-items:center; padding:0 20px;
   color:{text_col}; font-size:15px; gap:12px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }}
