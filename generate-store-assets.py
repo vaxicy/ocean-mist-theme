@@ -115,7 +115,7 @@ body {{ width:1280px; height:800px; background:{warm}; }}
 .bookbar {{ height:32px; background:{warm}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
 .bookbar span {{ color:{text_col}; font-size:12.5px; }}
 .ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; position:relative; }}
-.top-right {{ position:absolute; top:10px; right:22px; display:flex; align-items:center; gap:20px;
+.top-right {{ position:absolute; top:4px; right:22px; display:flex; align-items:center; gap:20px;
   color:{text_col}; font-size:13px; }}
 .grid {{ width:20px; height:20px; display:grid; grid-template-columns:1fr 1fr 1fr;
   grid-template-rows:1fr 1fr 1fr; gap:2px; }}
@@ -126,11 +126,6 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   border:1px solid {mist}; border-radius:24px; display:flex; align-items:center; padding:0 20px;
   color:{text_col}; font-size:15px; gap:12px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }}
 .search .mag {{ width:20px;height:20px;border-radius:50%;border:2px solid {text_col}; }}
-.shortcuts {{ margin-top:42px; display:flex; gap:34px; }}
-.tile {{ display:flex; flex-direction:column; align-items:center; gap:10px; }}
-.icon {{ width:64px; height:64px; border-radius:50%; background:{mist}; display:flex; align-items:center;
-  justify-content:center; color:{text_col}; font-size:28px; font-weight:700; }}
-.tile span {{ color:{text_col}; font-size:12.5px; }}
 </style></head><body>
 <div class="titlebar">
   <div class="ctrls"><span></span><span></span><span></span></div>
@@ -152,10 +147,6 @@ body {{ width:1280px; height:800px; background:{warm}; }}
   <div class="top-right"><span>Images</span><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
   <div class="logo-area"><div class="logo">Google</div></div>
   <div class="search"><div class="mag"></div>Search Google or type a URL</div>
-  <div class="shortcuts">
-    <div class="tile"><div class="icon" style="background:#FF0000;color:#fff;">▶</div><span>YouTube</span></div>
-    <div class="tile"><div class="icon">+</div><span>Add shortcut</span></div>
-  </div>
 </div>
 </body></html>"""
 

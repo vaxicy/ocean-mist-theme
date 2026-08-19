@@ -15,6 +15,15 @@ def rgb(key):
     return tuple(v)
 
 def main():
+    out = ROOT / "store-assets" / "icon.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    # The current icon is an AI-generated seashell logo. Do not overwrite it
+    # with the old PIL fallback; only generate the fallback if no icon exists.
+    if out.exists():
+        print("icon already exists (AI-generated), skipping PIL draw:", out)
+        return
+
     deep = rgb("frame")       # #3368A0
     sky = rgb("bookmark_text") if False else (102, 163, 191)  # #66A3BF
     mist = (200, 223, 219)    # #C8DFDB
@@ -43,8 +52,6 @@ def main():
     rad = 13
     d.ellipse([cx - rad, cy - rad, cx + rad, cy + rad], fill=deep)
 
-    out = ROOT / "store-assets" / "icon.png"
-    out.parent.mkdir(parents=True, exist_ok=True)
     img.save(out, "PNG")
     print("wrote", out)
 
