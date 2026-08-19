@@ -1,7 +1,9 @@
-Ocean Mist Theme is a calm, minimalist Chrome theme inspired by quiet coastlines and Nordic design. It wraps your browser in a soft palette of deep ocean blue, sky blue, mist cyan, and warm white — creating a premium, comfortable workspace without gradients, patterns, or illustrations.
+=== Short Description (Software Package Summary) ===
+A calm, minimalist Chrome theme inspired by the morning coastline — deep ocean blue, soft sky blue, mist cyan, and warm white for focus.
 
-The deep ocean blue frame feels stable and professional, while the warm white toolbar and active tab keep the interface bright and easy to read. Soft sky blue accents guide your eyes through inactive tabs, and the mist cyan bookmark bar adds a gentle layer of calm.
+=== English Detailed Description ===
+Ocean Mist Theme brings the quiet feeling of a morning coastline into your browser. Inspired by soft sea fog, gentle sky light, and deep ocean horizons, this minimalist Chrome theme uses a palette of deep ocean blue, soft sky blue, mist cyan, and warm white. The result is a clean, comfortable workspace that helps you stay calm and focused.
 
-Designed for long browsing sessions, Ocean Mist avoids high-saturation colors and visual noise. Whether you are working, reading, or researching, it keeps your Chrome window quiet, clean, and focused.
+There are no gradients, no textures, and no illustrations — just solid colors that reduce visual noise and keep your tabs, bookmarks, and new tab page looking tidy. The warm white toolbar creates a soft contrast against the deep blue frame, while subtle cyan accents add coastal freshness.
 
-Install Ocean Mist Theme to bring the stillness of a morning shore to every new tab.
+Ocean Mist is perfect for anyone who loves minimalist design, coastal aesthetics, or simply wants a quieter browser environment. Whether you are working, studying, or exploring the web, this theme wraps your Chrome window in a gentle atmosphere. Install Ocean Mist Theme and bring a sense of calm to every new tab.
