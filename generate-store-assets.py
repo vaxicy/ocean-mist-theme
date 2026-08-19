@@ -115,12 +115,13 @@ body {{ width:1280px; height:800px; background:{warm}; }}
 .bookbar {{ height:32px; background:{warm}; display:flex; align-items:center; padding:0 18px; gap:26px; }}
 .bookbar span {{ color:{text_col}; font-size:12.5px; }}
 .ntp {{ height:662px; background:{warm}; display:flex; flex-direction:column; align-items:center; position:relative; }}
-.top-right {{ position:absolute; top:22px; right:22px; display:flex; align-items:center; gap:20px;
+.top-right {{ position:absolute; top:10px; right:22px; display:flex; align-items:center; gap:20px;
   color:{text_col}; font-size:13px; }}
 .grid {{ width:20px; height:20px; display:grid; grid-template-columns:1fr 1fr 1fr;
   grid-template-rows:1fr 1fr 1fr; gap:2px; }}
 .grid b {{ background:{text_col}; border-radius:1px; }}
-.logo {{ margin-top:118px; font-size:92px; font-weight:700; letter-spacing:-3px; color:{logo_col}; }}
+.logo-area {{ margin-top:118px; width:260px; height:100px; display:flex; align-items:center; justify-content:center; }}
+.logo {{ font-size:92px; font-weight:700; letter-spacing:-3px; color:{logo_col}; }}
 .search {{ margin-top:30px; width:560px; height:46px; background:#FFFFFF;
   border:1px solid {mist}; border-radius:24px; display:flex; align-items:center; padding:0 20px;
   color:{text_col}; font-size:15px; gap:12px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }}
@@ -149,22 +150,10 @@ body {{ width:1280px; height:800px; background:{warm}; }}
 </div>
 <div class="ntp">
   <div class="top-right"><span>Images</span><div class="grid"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
-  <div class="logo">Google</div>
+  <div class="logo-area"><div class="logo">Google</div></div>
   <div class="search"><div class="mag"></div>Search Google or type a URL</div>
   <div class="shortcuts">
     <div class="tile"><div class="icon" style="background:#FF0000;color:#fff;">▶</div><span>YouTube</span></div>
-    <div class="tile">
-      <div class="icon" style="background:#FFFFFF;border:1px solid {mist};overflow:hidden;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-          <path d="M4 6h16l-2 13H6L4 6z" fill="#4285F4" opacity="0.9"/>
-          <path d="M8 6V4a2 2 0 0 1 4 0v2M12 6V4a2 2 0 0 1 4 0v2" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="9" cy="12" r="1.5" fill="#FBBC05"/>
-          <circle cx="15" cy="12" r="1.5" fill="#34A853"/>
-          <circle cx="12" cy="15" r="1.5" fill="#EA4335"/>
-        </svg>
-      </div>
-      <span>Chrome Web Store</span>
-    </div>
     <div class="tile"><div class="icon">+</div><span>Add shortcut</span></div>
   </div>
 </div>
